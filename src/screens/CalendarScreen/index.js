@@ -9,6 +9,9 @@ var moment = require('moment');
 moment().format();
 
 const FormScreen = () => {
+  const [selectedDate , setSelectedDate] = useState("");
+  const [selectedTime , setSelectedTime] = useState("");
+  const [isSelected , setisSelected] = useState(false);
     var settings = {
        
         arrows:true,
@@ -52,13 +55,17 @@ const FormScreen = () => {
            while (dateEnd.diff(dateStart, 'days') >= 0) {
             days.push(dateStart._d.toString())
             dateStart.add(1, 'days')
-           }
+           }  
                const renderDay = (day,id) => {
                   
                  const dayInfo = day.split(' ');
-                 return  <div className="dates" onClick={() => { setDate(day) }}>
-                    
-                 <p  key={id}>{dayInfo[0]}<br/>{dayInfo[2]}</p>
+                 return  <div key={id} id="dates1" className="dates" onClick={ (e) => { setDate(day) 
+                  e.target.classList.toggle("date_active")
+                  // console.log(dayInfo[0],",",dayInfo[2])
+                }}
+                >
+
+                 {dayInfo[0]}<br/>{dayInfo[2]}
                  {/* <p ></p> */}
               </div >
                }
@@ -79,8 +86,9 @@ const FormScreen = () => {
 
                                 
                                 {days.map((day,id) =>
-                              <div className="date_option">
+                              <div key={id} className="date_option">
                               {renderDay(day,id)}
+                              
                           </div>
                            )}
                             </Slider>
@@ -91,8 +99,9 @@ const FormScreen = () => {
                             <Slider className="date_slider" {...settingsTime}>
 
                                 {times.map((slotTime,id) =>
-                        <div className="time_option">
-                           <p key={id}>{slotTime}</p>
+                        <div key={id} className="time_option" onClick={(e) => { setSelectedTime(e.target.classList.toggle("time_active"))}
+                         }  >
+                           <p >{slotTime}</p>
                         </div >
                     )}
                      
