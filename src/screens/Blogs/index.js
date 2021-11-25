@@ -23,7 +23,7 @@ const Blog = () => {
         <div className="message_body pl-12 pt-6 w-lg h-lg border border-primary border-b-0 relative overflow-y-auto  justify-center">
         <div className="w-md my-4">
   <div className="flex justify-center -mt-8">
-    <img className="w-12 h-12  rounded-full" src={invoNews} alt=""/>
+    <img className="w-12 h-12 rounded-full" src={invoNews} alt=""/>
   </div>
   <div>
     <div className="wrap h-16 -mt-8 rounded-lg rounded-b-none">

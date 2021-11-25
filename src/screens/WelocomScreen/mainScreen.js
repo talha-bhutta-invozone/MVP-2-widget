@@ -39,14 +39,18 @@ const mainScreen = () => {
                 <p>Service Info</p>
           </div>
           </Link>
-
+          
+          <Link to="/chat">
           <div className="option max-w-md w-max break-all border border-primary rounded p-2 hover:bg-primary hover:text-white hover:cursor-pointer">
                <p>Chat with Sales</p>
           </div>
+          </Link>
 
+          <Link to="/form-screen">
           <div className="option max-w-md w-max break-all border border-primary rounded p-2 hover:bg-primary hover:text-white hover:cursor-pointer">
                <p>Educational Content</p>
           </div>
+          </Link>
 
       
         </div>
