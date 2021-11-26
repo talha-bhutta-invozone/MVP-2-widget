@@ -7,6 +7,7 @@ import CalendarScreen from './screens/CalendarScreen';
 import ChatScreen from './screens/ChatScreen';
 import Blog from './screens/Blogs'
 const App = () => {
+  
   return (
     <div className="wrapper">
       <Router>
