@@ -11,9 +11,7 @@ moment().format();
 const FormScreen = () => {
   const [selectedDate , setSelectedDate] = useState("");
   const [selectedTime , setSelectedTime] = useState("");
-  const [isSelected , setisSelected] = useState(false);
     var settings = {
-       
         arrows:true,
         infinite: true,
         speed: 500,
@@ -59,14 +57,14 @@ const FormScreen = () => {
                const renderDay = (day,id) => {
                   
                  const dayInfo = day.split(' ');
-                 return  <div key={id} id="dates1" className="dates" onClick={ (e) => { setDate(day) 
-                  e.target.classList.toggle("date_active")
-                  // console.log(dayInfo[0],",",dayInfo[2])
+                 return  <div key={id} className="dates" onClick={ (e) => { setDate(day) 
+                  setSelectedDate([...document.querySelectorAll('.date_active')].map(x => x.classList.remove("date_active")))
+                  setSelectedDate(e.target.classList.add("date_active"))
+                  console.log(dayInfo[0],",",dayInfo[2])
                 }}
                 >
 
                  {dayInfo[0]}<br/>{dayInfo[2]}
-                 {/* <p ></p> */}
               </div >
                }
     return (
@@ -98,13 +96,19 @@ const FormScreen = () => {
                   <div className="slider_container flex justify-center py-4" style={{borderTop:'1px solid #1b3660', borderBottom:'1px solid #1b3660'}}>
                             <Slider className="date_slider" {...settingsTime}>
 
-                                {times.map((slotTime,id) =>
-                        <div key={id} className="time_option" onClick={(e) => { setSelectedTime(e.target.classList.toggle("time_active"))}
-                         }  >
-                           <p >{slotTime}</p>
+                                {times.map((slotTime,id) => {
+                                  const selectTime = slotTime;
+                                  return (
+                        <div key={id} className="time_option" onClick={(e) => { setTime(slotTime)
+                          setSelectedTime([...document.querySelectorAll('.time_active')].map(x => x.classList.remove("time_active")))
+                          setSelectedTime(e.target.classList.add("time_active"))
+                          console.log(selectTime)
+                         }}>
+                           <p>{slotTime}</p>
+                           
                         </div >
-                    )}
-                     
+                  )}
+                  )}
                             </Slider>
 
                   </div>

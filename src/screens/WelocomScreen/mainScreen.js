@@ -46,7 +46,7 @@ const mainScreen = () => {
           </div>
           </Link>
 
-          <Link to="/form-screen">
+          <Link to="/blogs">
           <div className="option max-w-md w-max break-all border border-primary rounded p-2 hover:bg-primary hover:text-white hover:cursor-pointer">
                <p>Educational Content</p>
           </div>
